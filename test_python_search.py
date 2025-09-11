@@ -22,3 +22,23 @@ class PythonOrgSearch(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+
+def test_search_in_python_org():
+    driver = webdriver.Chrome()
+    driver.get("https://www.python.org")
+    assert "Python" in driver.title
+    elem = driver.find_element(By.NAME, "q")
+    elem.send_keys("pycon")
+    elem.submit()
+    assert "No results found." not in driver.page_source
+    driver.quit()
+
+def test_downloads_link_exists():
+    driver = webdriver.Chrome()
+    driver.get("https://www.python.org")
+    downloads_link = driver.find_element(By.LINK_TEXT, "Downloads")
+    assert downloads_link is not None
+    driver.quit()
