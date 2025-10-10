@@ -1,3 +1,4 @@
+
 # 🧪 Selenium Web UI Automation Demo
 
 This project showcases automated UI testing using **Selenium WebDriver** and **Pytest** in Python. It validates core functionality and UI elements on [python.org](https://www.python.org), using both `unittest.TestCase` and standalone test functions.
@@ -27,7 +28,7 @@ Opens Chrome and navigates to python.org
 
 Verifies the page title contains "Python"
 
-Searches for "pycon" and confirms results are found
+Searches for "pycon" and verifies that search results are displayed
 
 test_search_in_python_org
 Standalone function version of the above test
