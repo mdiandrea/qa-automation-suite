@@ -53,3 +53,16 @@ class PythonOrgSearch(unittest.TestCase):
 if __name__ == "__main__":
     unittest.main(verbosity=2)
 
+def test_community_link():
+    from selenium import webdriver
+    from selenium.webdriver.common.by import By
+
+    driver = webdriver.Chrome()
+    driver.get("https://www.python.org")
+
+    community_link = driver.find_element(By.LINK_TEXT, "Community")
+    community_link.click()
+
+    assert "Community" in driver.title
+
+    driver.quit()
