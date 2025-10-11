@@ -1,0 +1,16 @@
+sample_query.sql: FAIL
+Expected: [('John', 'Doe'), ('Jane', 'Smith')]
+Actual: []
+
+sample_query.sql: PASS
+Expected: [('John', 'Doe'), ('Jane', 'Smith')]
+Actual: [('John', 'Doe'), ('Jane', 'Smith')]
+
+sample_query.sql: PASS
+Expected: [('John', 'Doe'), ('Jane', 'Smith')]
+Actual: [('John', 'Doe'), ('Jane', 'Smith')]
+
+sample_query.sql: PASS
+Expected: [('John', 'Doe'), ('Jane', 'Smith')]
+Actual: [('John', 'Doe'), ('Jane', 'Smith')]
+

@@ -1,0 +1,1 @@
+## Reports  This folder stores test execution reports, including HTML summaries, logs, and metrics from Selenium, API, and SQL test runs.  ### Highlights  - Timestamped HTML reports  - Optional integration with Allure or Pytest HTML  - Easy sharing and review for stakeholders 

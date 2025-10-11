@@ -1,0 +1,1 @@
+## SQL Tests  This folder includes SQL validation scripts and test cases for verifying data integrity, query performance, and backend logic.  ### Highlights  - Sample queries for SELECT, JOIN, and aggregation  - Data validation against expected results  - Integration with Python (via SQLite or PostgreSQL) 

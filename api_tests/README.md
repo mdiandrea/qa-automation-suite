@@ -1,0 +1,1 @@
+## API Tests  This folder contains automated tests for RESTful APIs using Python and the requests library, optionally integrated with pytest.  ### Highlights  - Endpoint validation (GET, POST, PUT, DELETE)  - Status code and response body assertions  - Authentication and header testing  - JSON schema validation (optional) 
