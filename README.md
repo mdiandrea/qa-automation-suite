@@ -1,43 +1,55 @@
+🧪 QA Automation Suite
+Welcome to the QA Automation Suite, a modular testing framework designed to showcase manual and automated testing across web UI, backend SQL, and RESTful APIs. This project reflects real-world QA workflows and highlights precision, structure, and strategy in software testing.
 
-# 🧪 Selenium Web UI Automation Demo
+📁 Folder Overview
+Folder	Description
+selenium_tests/	Automated UI tests using Selenium WebDriver
+sql_tests/	SQL scripts and Python-based validations for backend data integrity
+api_tests/	RESTful API tests using Python and requests
+reports/	HTML and log-based test execution reports
+screenshots/	Captured screenshots from Selenium runs, especially on failure
+🛠 Tech Stack
+Python 3.x
 
-This project showcases automated UI testing using **Selenium WebDriver** and **Pytest** in Python. It validates core functionality and UI elements on [python.org](https://www.python.org), using both `unittest.TestCase` and standalone test functions.
+Selenium WebDriver
 
----
+Pytest
 
-## 🚀 Getting Started
+Requests
 
-### Clone the repository
-```bash
-git clone https://github.com/mdiandrea/Selenium-Web-UI-Automation-Demo.git
-cd Selenium-Web-UI-Automation-Demo
+Pure SQL (engine-agnostic)
+
+Standard libraries for reporting and file I/O
+
+🚀 Getting Started
+Clone the repository
+
+bash
+git clone https://github.com/mdiandrea/qa-automation-suite.git
+cd qa-automation-suite
 Install dependencies
+
 bash
 pip install -r requirements.txt
-Run tests
+Run Selenium tests
+
 bash
-pytest
-Generate an HTML report
+pytest selenium_tests/
+Run API tests
+
 bash
-pytest --html=report.html
-✅ Test Descriptions
-PythonOrgSearch::test_search_in_python_org
-Uses unittest.TestCase class
+pytest api_tests/
+Run SQL validations
 
-Opens Chrome and navigates to python.org
+bash
+python sql_tests/test_queries.py
+🎯 Purpose
+This suite was built to demonstrate:
 
-Verifies the page title contains "Python"
+End-to-end test coverage across UI, backend, and services
 
-Searches for "pycon" and verifies that search results are displayed
+Clean folder structure and modular test design
 
-test_search_in_python_org
-Standalone function version of the above test
+Real-world QA workflows including reporting and debugging
 
-Performs the same steps using plain assert statements
-
-test_downloads_link_exists
-Opens Chrome and loads python.org
-
-Locates the "Downloads" link by its text
-
-Asserts that the link exists
+Engine-agnostic SQL testing for flexible backend validation
