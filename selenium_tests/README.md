@@ -1,0 +1,1 @@
+## Selenium Tests  This folder contains automated UI tests built with Selenium WebDriver.  ### Highlights  - Cross-browser compatibility checks  - Element visibility and interaction validation  - Page Object Model (POM) structure (optional)  - Screenshot capture on failure 

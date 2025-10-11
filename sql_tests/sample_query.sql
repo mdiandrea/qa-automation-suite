@@ -1,0 +1,1 @@
+SELECT first_name, last_name FROM users WHERE last_name IN ('Doe', 'Smith');
