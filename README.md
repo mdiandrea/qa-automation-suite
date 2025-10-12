@@ -1,55 +1,105 @@
-🧪 QA Automation Suite
-Welcome to the QA Automation Suite, a modular testing framework designed to showcase manual and automated testing across web UI, backend SQL, and RESTful APIs. This project reflects real-world QA workflows and highlights precision, structure, and strategy in software testing.
+# 🧪 Selenium Test Suite – Functional, API, and SQL Automation
 
-📁 Folder Overview
-Folder	Description
-selenium_tests/	Automated UI tests using Selenium WebDriver
-sql_tests/	SQL scripts and Python-based validations for backend data integrity
-api_tests/	RESTful API tests using Python and requests
-reports/	HTML and log-based test execution reports
-screenshots/	Captured screenshots from Selenium runs, especially on failure
-🛠 Tech Stack
-Python 3.x
+Welcome to my end-to-end QA automation suite! This project demonstrates robust testing across web UI, REST APIs, and SQL queries using Python’s `unittest` framework and Selenium WebDriver.
+
+---
+
+## 📌 Features
+
+- ✅ Functional UI Testing with Selenium (ChromeDriver)
+- ✅ API Testing using `requests`
+- ✅ SQL Query Validation with SQLite
+- ✅ Modular Test Runner for multi-folder discovery
+- ✅ Cross-domain coverage: login flows, search functionality, API status, and DB logic
+- ✅ Screenshot capture on failure
+- ✅ Clear console logging for test progress and debugging
+
+---
+
+🗂️ **Project Structure**
+
+C:\Users\skiny\Documents\selenium
+```
+├── run_tests.py                     # Unified test runner
+```
+ ```
+├── selenium_tests\
+ │   └── test_login.py # Valid login test using Selenium
+```
+ ```
+├── api_tests\
+ │   └── test_example_api.py         # Sample API status check
+```
+ ```
+├── sql_tests\
+ │   └── test_sql_sample.py           # Dummy SQL query test
+```
+ ```
+├── python_org_tests\
+ │   └── test_python_search.py       # UI tests for python.org
+```
+```
+├── screenshots\                    # Captured on test failure
+```
+
+
+
+
+## 🚀 Getting Started
+
+ 1. Clone the Repo
+
+git clone https://github.com/your-username/selenium-test-suite.git
+cd selenium-test-suite
+
+2. Install Dependencies
+pip install -r requirements.txt
+
+3. Run All Tests
+python run_tests.py
+
+4. Run a Specific Test
+python selenium_tests/test_login.py
+
+
+## 🧪 **Sample Output**
+```
+test_login_with_valid_credentials (test_login.TestLogin) ...
+Waiting for username field...
+Sending credentials...
+Waiting for success message...
+✅ Login test passed.
+ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 8.965s
+
+OK
+```
+
+
+📸 Screenshots
+Screenshots are automatically saved to the screenshots/ folder on test failure for easy debugging.
+
+
+
+🧠 **Tech Stack**
+
+Python 3.10+
 
 Selenium WebDriver
 
-Pytest
+unittest
 
-Requests
+requests
 
-Pure SQL (engine-agnostic)
+SQL
 
-Standard libraries for reporting and file I/O
+💡 Future Enhancements
+[ ] Add negative login test cases
 
-🚀 Getting Started
-Clone the repository
+[ ] Integrate with GitHub Actions for CI
 
-bash
-git clone https://github.com/mdiandrea/qa-automation-suite.git
-cd qa-automation-suite
-Install dependencies
+[ ] Generate HTML reports with pytest-html
 
-bash
-pip install -r requirements.txt
-Run Selenium tests
-
-bash
-pytest selenium_tests/
-Run API tests
-
-bash
-pytest api_tests/
-Run SQL validations
-
-bash
-python sql_tests/test_queries.py
-🎯 Purpose
-This suite was built to demonstrate:
-
-End-to-end test coverage across UI, backend, and services
-
-Clean folder structure and modular test design
-
-Real-world QA workflows including reporting and debugging
-
-Engine-agnostic SQL testing for flexible backend validation
+[ ] Add test data parameterization
