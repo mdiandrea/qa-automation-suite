@@ -14,7 +14,7 @@ def test_login_flow():
     options = Options()
     options.binary_location = chrome_path
 
-    service = Service(executable_path=driver_path)
+    service = Service(executable_path="C:\\WebDrivers\\chromedriver.exe")
     driver = webdriver.Chrome(service=service, options=options)
 
     try:
