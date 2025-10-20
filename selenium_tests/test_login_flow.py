@@ -17,7 +17,7 @@ def driver():
     driver.quit()
 
 def test_login_flow(driver):
-    driver.get("https://example.com/login")  # Replace with your actual login URL
+    driver.get("https://jobright.ai/?login=true")  # Replace with your actual login URL
 
     # Locate and interact with login elements
     username_field = driver.find_element(By.ID, "username")
