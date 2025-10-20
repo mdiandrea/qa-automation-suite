@@ -11,7 +11,7 @@ def test_login_flow():
     service = Service("C:/Users/mdian/qa-automation-suite/drivers/chromedriver-win64/chromedriver.exe")
     driver = webdriver.Chrome(service=service, options=chrome_options)
 
-    driver.get("https://jobright.ai/?login=true")  # ✅ Your actual login URL
+    driver.get("https://jobright.ai/?login=true")
 
     username_field = driver.find_element(By.ID, "username")
     password_field = driver.find_element(By.ID, "password")
