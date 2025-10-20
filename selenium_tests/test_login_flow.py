@@ -1,8 +1,10 @@
 from selenium import webdriver
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-import time
+from selenium.webdriver.chrome.service import Service
+from selenium import webdriver
+
+service = Service(executable_path="C:\\WebDrivers\\chromedriver.exe")
+driver = webdriver.Chrome(service=service)
+
 
 def test_login_flow():
     # Selenium Manager automatically manages the ChromeDriver
