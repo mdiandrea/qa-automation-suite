@@ -7,7 +7,7 @@ def test_login_flow():
     chrome_options = Options()
     chrome_options.add_argument("--start-maximized")
 
-    # Explicit path to chromedriver.exe
+    # ✅ Explicit path to chromedriver.exe
     service = Service("C:/Users/mdian/qa-automation-suite/drivers/chromedriver-win64/chromedriver.exe")
     driver = webdriver.Chrome(service=service, options=chrome_options)
 
