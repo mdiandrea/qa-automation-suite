@@ -7,10 +7,14 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
 def test_login_flow():
-    options = Options()
-    options.binary_location = "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe"
+    # Explicitly set paths to avoid Selenium Manager issues
+    chrome_path = "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe"
+    driver_path = "C:\\WebDrivers\\chromedriver.exe"
 
-    service = Service(executable_path="C:\\WebDrivers\\chromedriver.exe")
+    options = Options()
+    options.binary_location = chrome_path
+
+    service = Service(executable_path=driver_path)
     driver = webdriver.Chrome(service=service, options=options)
 
     try:
