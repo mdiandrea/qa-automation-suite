@@ -1,105 +1,108 @@
-# 🧪 Selenium Test Suite – Functional, API, and SQL Automation
+# 🧪 QA Automation Suite – Selenium, Cypress, API, and SQL Testing
 
-Welcome to my end-to-end QA automation suite! This project demonstrates robust testing across web UI, REST APIs, and SQL queries using Python’s `unittest` framework and Selenium WebDriver.
+Welcome to my end-to-end QA automation suite! This project demonstrates robust testing across web UI, REST APIs, and SQL queries using both Python and JavaScript frameworks.
 
 ---
 
 ## 📌 Features
 
-- ✅ Functional UI Testing with Selenium (ChromeDriver)
-- ✅ API Testing using `requests`
-- ✅ SQL Query Validation with SQLite
-- ✅ Modular Test Runner for multi-folder discovery
-- ✅ Cross-domain coverage: login flows, search functionality, API status, and DB logic
-- ✅ Screenshot capture on failure
-- ✅ Clear console logging for test progress and debugging
+✅ Functional UI Testing with Selenium (Python)  
+✅ UI and API Testing with Cypress (JavaScript)  
+✅ REST API Validation using `requests`  
+✅ SQL Query Testing with SQLite  
+✅ Modular Test Runner for Python tests  
+✅ Screenshot capture on failure (Python + Cypress)  
+✅ Clear console logging for debugging  
+✅ Cross-domain coverage: login flows, search functionality, API status, and DB logic
 
 ---
 
-🗂️ **Project Structure**
+## 🗂️ Project Structure
 
-C:\Users\skiny\Documents\selenium
 ```
-├── run_tests.py                     # Unified test runner
-```
- ```
-├── selenium_tests\
- │   └── test_login.py # Valid login test using Selenium
-```
- ```
-├── api_tests\
- │   └── test_example_api.py         # Sample API status check
-```
- ```
-├── sql_tests\
- │   └── test_sql_sample.py           # Dummy SQL query test
-```
- ```
-├── python_org_tests\
- │   └── test_python_search.py       # UI tests for python.org
-```
-```
-├── screenshots\                    # Captured on test failure
+qa-automation-suite/
+├── run_tests.py                 # Unified Python test runner
+├── selenium_tests/             # Selenium UI tests
+├── api_tests/                  # Python API tests
+├── sql_tests/                  # SQL query tests
+├── python_org_tests/           # UI tests for python.org
+├── cypress/
+│   ├── e2e/
+│   │   ├── sample-ui.cy.js     # Cypress UI test for docs.cypress.io
+│   │   └── sample-api.cy.js    # Cypress API test for randomuser.me
+│   ├── screenshots/            # Cypress screenshots on failure
+│   └── cypress.config.js       # Cypress configuration
+├── screenshots/                # Python screenshots on failure
+├── assets/, drivers/, reports/ # Supporting files
 ```
 
-
-
+---
 
 ## 🚀 Getting Started
 
- 1. Clone the Repo
-
-git clone https://github.com/your-username/selenium-test-suite.git
-cd selenium-test-suite
-
-2. Install Dependencies
+### 🔧 Python Setup
+```bash
 pip install -r requirements.txt
-
-3. Run All Tests
 python run_tests.py
+```
 
-4. Run a Specific Test
+Run a specific test:
+```bash
 python selenium_tests/test_login.py
+```
 
+### 🔧 Cypress Setup
+```bash
+npm install
+npx cypress run         # Headless mode
+npx cypress open        # GUI mode
+```
 
-## 🧪 **Sample Output**
+---
+
+## 🧪 Sample Output
+
+### ✅ Selenium Test
 ```
 test_login_with_valid_credentials (test_login.TestLogin) ...
 Waiting for username field...
 Sending credentials...
-Waiting for success message...
 ✅ Login test passed.
 ok
-
-----------------------------------------------------------------------
-Ran 5 tests in 8.965s
-
-OK
 ```
 
+### ✅ Cypress Test
+```
+Public API Test
+√ Fetches a random user and checks response structure (397ms)
 
-📸 Screenshots
-Screenshots are automatically saved to the screenshots/ folder on test failure for easy debugging.
+Cypress Docs Smoke Test
+√ Loads the homepage and checks key elements (3449ms)
+```
+
+---
+
+## 📸 Screenshots
+
+- Python failures: saved to `screenshots/`
+- Cypress failures: saved to `cypress/screenshots/`
+
+---
+
+## 🧠 Tech Stack
+
+- **Python 3.10+**: Selenium, unittest, requests, SQLite
+- **JavaScript (Node.js)**: Cypress
+
+---
+
+## 💡 Future Enhancements
+
+- [ ] Add negative login test cases  
+- [ ] Integrate GitHub Actions for CI  
+- [ ] Generate HTML reports with `pytest-html`  
+- [ ] Add test data parameterization  
+- [ ] Expand Cypress coverage to include form validation and error handling
 
 
 
-🧠 **Tech Stack**
-
-Python 3.10+
-
-Selenium WebDriver
-
-unittest
-
-requests
-
-SQL
-
-💡 Future Enhancements
-[ ] Add negative login test cases
-
-[ ] Integrate with GitHub Actions for CI
-
-[ ] Generate HTML reports with pytest-html
-
-[ ] Add test data parameterization
