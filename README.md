@@ -1,6 +1,6 @@
 # 🧪 QA Automation Suite – Selenium, Cypress, API, and SQL Testing
 
-Welcome to my end-to-end QA automation suite! This project demonstrates robust testing across web UI, REST APIs, and SQL queries using both Python and JavaScript frameworks.
+Welcome to my end-to-end QA automation suite! This project demonstrates robust testing across web UI, REST APIs, and SQL queries using both Python and JavaScript frameworks. It’s designed for scalability, clarity, and cross-domain coverage—from browser automation to backend validation.
 
 ---
 
@@ -23,9 +23,13 @@ Welcome to my end-to-end QA automation suite! This project demonstrates robust t
 qa-automation-suite/
 ├── run_tests.py                 # Unified Python test runner
 ├── selenium_tests/             # Selenium UI tests
-├── api_tests/                  # Python API tests
-├── sql_tests/                  # SQL query tests
+│   └── test_login.py           # Valid login flow
 ├── python_org_tests/           # UI tests for python.org
+│   └── test_python_search.py   # Search functionality test
+├── api_tests/                  # Python API tests
+│   └── test_example_api.py     # Sample API status check
+├── sql_tests/                  # SQL query tests
+│   └── test_sql_sample.py      # Dummy SQLite query test
 ├── cypress/
 │   ├── e2e/
 │   │   ├── sample-ui.cy.js     # Cypress UI test for docs.cypress.io
@@ -60,38 +64,34 @@ npx cypress open        # GUI mode
 
 ---
 
-## 🧪 Sample Output
+## 🧪 Test Breakdown
 
-### ✅ Selenium Test
-```
-test_login_with_valid_credentials (test_login.TestLogin) ...
-Waiting for username field...
-Sending credentials...
-✅ Login test passed.
-ok
-```
+### ✅ Selenium UI Tests
+- `test_login.py`: Validates login flow using Selenium WebDriver and ChromeDriver  
+- `test_python_search.py`: Automates a search on python.org and verifies results
 
-### ✅ Cypress Test
-```
-Public API Test
-√ Fetches a random user and checks response structure (397ms)
+### ✅ Python API Test
+- `test_example_api.py`: Sends GET request to a sample REST endpoint and asserts status code and response structure
 
-Cypress Docs Smoke Test
-√ Loads the homepage and checks key elements (3449ms)
-```
+### ✅ SQL Test
+- `test_sql_sample.py`: Executes a dummy SQL query using SQLite and validates result structure
+
+### ✅ Cypress Tests
+- `sample-ui.cy.js`: Loads docs.cypress.io and verifies presence of `nav`, `main`, and `footer` elements  
+- `sample-api.cy.js`: Sends GET request to randomuser.me and asserts that the response contains a `results` array with one user
 
 ---
 
 ## 📸 Screenshots
 
-- Python failures: saved to `screenshots/`
+- Python failures: saved to `screenshots/`  
 - Cypress failures: saved to `cypress/screenshots/`
 
 ---
 
 ## 🧠 Tech Stack
 
-- **Python 3.10+**: Selenium, unittest, requests, SQLite
+- **Python 3.10+**: Selenium, unittest, requests, SQLite  
 - **JavaScript (Node.js)**: Cypress
 
 ---
@@ -104,5 +104,6 @@ Cypress Docs Smoke Test
 - [ ] Add test data parameterization  
 - [ ] Expand Cypress coverage to include form validation and error handling
 
+---
 
 
