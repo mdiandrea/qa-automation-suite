@@ -1,71 +1,54 @@
+import unittest
 from selenium import webdriver
+from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.service import Service
-from selenium.webdriver.common.by import By
-from selenium.webdriver.chrome.options import Options
-from selenium.webdriver.chrome.options import Options
-from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from webdriver_manager.chrome import ChromeDriverManager
 
-def test_login_flow():
-    chrome_options = Options()
-    chrome_options.add_argument("--start-maximized")
+class LoginFlowTest(unittest.TestCase):
+    def setUp(self):
+        options = webdriver.ChromeOptions()
+        options.add_argument("--disable-features=PasswordCheck")
+        options.add_argument("--disable-popup-blocking")
+        options.add_argument("--disable-blink-features=AutomationControlled")
+        options.add_argument("--disable-infobars")
+        options.add_argument("--start-maximized")
+        options.add_experimental_option("excludeSwitches", ["enable-automation"])
+        options.add_experimental_option("useAutomationExtension", False)
+        # Optional: use a fresh profile to avoid reused credentials
+        # options.add_argument("--user-data-dir=C:\\Temp\\ChromeProfile")
 
+        self.driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
+        self.driver.get("https://practice.expandtesting.com/login")
 
-    # ✅ Explicit path to chromedriver.exe
-    service = Service("C:/Users/mdian/qa-automation-suite/drivers/chromedriver-win64/chromedriver.exe")
-    driver = webdriver.Chrome(service=service, options=chrome_options)
+    def test_login_flow(self):
+        driver = self.driver
 
-    driver.get("https://jobright.ai/?login=true")
-
-    username_field = driver.find_element(By.ID, "username")
-    password_field = driver.find_element(By.ID, "password")
-    login_button = driver.find_element(By.ID, "login")
-
-    username_field.send_keys("your_username")
-    password_field.send_keys("your_password")
-    login_button.click()
-
-    assert "Dashboard" in driver.title or "Welcome" in driver.page_source
-    driver.quit()
-    # Disable Chrome password manager and leak detection
-    prefs = {
-        "credentials_enable_service": False,
-        "profile.password_manager_enabled": False,
-        "profile.password_manager_leak_detection": False
-    }
-    chrome_options.add_experimental_option("prefs", prefs)
-
-    # Path to your ChromeDriver
-    service = Service("C:/Users/mdian/qa-automation-suite/drivers/chromedriver-win64/chromedriver.exe")
-    driver = webdriver.Chrome(service=service, options=chrome_options)
-
-    try:
-        driver.get("https://practice.expandtesting.com/login")
-        print("Navigated to login page")
-
-        WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.ID, "username")))
-        print("Username field found")
-
-        driver.find_element(By.ID, "username").send_keys("practice")
-        print("Entered username")
+        # Wait for username field and enter credentials
+        WebDriverWait(driver, 10).until(
+            EC.presence_of_element_located((By.ID, "username"))
+        ).send_keys("practice")
 
         driver.find_element(By.ID, "password").send_keys("SuperSecretPassword!")
-        print("Entered password")
 
-        login_button = driver.find_element(By.CSS_SELECTOR, "button[type='submit']")
-        driver.execute_script("arguments[0].click();", login_button)
-        print("Login button clicked")
-
-        WebDriverWait(driver, 30).until(
-            lambda d: "You logged into a secure area!" in d.page_source
+        # Scroll to login button and click via JavaScript to bypass overlays
+        login_button = WebDriverWait(driver, 10).until(
+            EC.presence_of_element_located((By.XPATH, "//button[@type='submit']"))
         )
-        print("Login successful")
+        driver.execute_script("arguments[0].scrollIntoView(true);", login_button)
+        driver.execute_script("arguments[0].click();", login_button)
 
-    except Exception as e:
-        print(f"Test failed with error: {e}")
-        raise
+        # Wait for redirect and success message
+        WebDriverWait(driver, 10).until(EC.url_contains("/secure"))
+        flash = WebDriverWait(driver, 10).until(
+            EC.presence_of_element_located((By.ID, "flash"))
+        )
 
-    finally:
-        print("Closing browser...")
-        driver.quit()
+        self.assertIn("You logged into a secure area!", flash.text)
+
+    def tearDown(self):
+        self.driver.quit()
+
+if __name__ == "__main__":
+    unittest.main(verbosity=2)

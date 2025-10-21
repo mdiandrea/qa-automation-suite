@@ -1,0 +1,24 @@
+{
+  "name": "qa-automation-suite",
+  "version": "1.0.0",
+  "description": "Welcome to my end-to-end QA automation suite! This project demonstrates robust testing across web UI, REST APIs, and SQL queries using Python’s `unittest` framework and Selenium WebDriver.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mdiandrea/qa-automation-suite.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/mdiandrea/qa-automation-suite/issues"
+  },
+  "homepage": "https://github.com/mdiandrea/qa-automation-suite#readme",
+  "devDependencies": {
+    "cypress": "^15.5.0"
+  }
+}
